@@ -1,0 +1,95 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "blank-diamond"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "vr",
+      "styles": [
+        "assets/bower_components/select2/dist/css/select2.min.css",
+        "assets/bower_components/bootstrap-daterangepicker/daterangepicker.css",
+        "assets/bower_components/dropzone/dist/dropzone.css",
+        "assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css",
+        "assets/bower_components/fullcalendar/dist/fullcalendar.min.css",
+        "assets/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css",
+        "assets/css/main.css"
+      ],
+      "scripts": [
+        "assets/bower_components/jquery/dist/jquery.min.js",
+        "assets/bower_components/moment/moment.js",
+        "assets/bower_components/chart.js/dist/Chart.min.js",
+        "assets/bower_components/select2/dist/js/select2.full.min.js",
+        "assets/bower_components/ckeditor/ckeditor.js",
+        "assets/bower_components/bootstrap-validator/dist/validator.min.js",
+        "assets/bower_components/bootstrap-daterangepicker/daterangepicker.js",
+        "assets/bower_components/dropzone/dist/dropzone.js",
+        "assets/bower_components/editable-table/mindmup-editabletable.js",
+        "assets/bower_components/datatables.net/js/jquery.dataTables.min.js",
+        "assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js",
+        "assets/bower_components/fullcalendar/dist/fullcalendar.min.js",
+        "assets/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js",
+        "assets/bower_components/bootstrap/js/dist/util.js",
+        "assets/bower_components/bootstrap/js/dist/tab.js",
+        "assets/js/main.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts",
+        "stag": "environments/environment.stag.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {
+      "spec": false
+    },
+    "directive": {
+      "spec": false
+    },
+    "service": {
+      "spec": false
+    },
+    "build": {
+      "showCircularDependencies": false
+    }
+  }
+}
