@@ -3,7 +3,8 @@ import { ProfileComponent } from './profile.component';
 
 export const profileRoutes: Routes = [
   {
-    path: 'pages/profile',
-    component: ProfileComponent
+    path: 'users/:identifier/profile',
+    component: ProfileComponent,
+    pathMatch: 'full'
   }
 ];

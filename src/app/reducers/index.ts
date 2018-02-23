@@ -10,8 +10,6 @@ import * as _ from 'lodash';
  */
 // import * as fromRouter from '@ngrx/router-store';
 import * as fromLayout from '../core/layout/shared/layout.reducer';
-import * as fromSidenav from '../core/sidenav/shared/sidenav.reducer';
-import * as fromInbox from '../pages/inbox/shared/inbox.reducer';
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
@@ -20,10 +18,7 @@ import * as fromInbox from '../pages/inbox/shared/inbox.reducer';
 export interface State {
   // router: fromRouter.RouterReducerState;
   layout: fromLayout.State;
-  sidenav: fromSidenav.State;
-  inbox: fromInbox.State;
 }
-
 
 /**
  * Because metareducers take a reducer function and return a new reducer,
@@ -34,9 +29,7 @@ export interface State {
  */
 export const reducers: ActionReducerMap<State> = {
   // router: fromRouter.routerReducer,
-  layout: fromLayout.reducer,
-  sidenav: fromSidenav.reducer,
-  inbox: fromInbox.reducer
+  layout: fromLayout.reducer
 };
 
 /**
@@ -73,58 +66,6 @@ export const reducers: ActionReducerMap<State> = {
 
 export const getLayoutState = (state: State) => state.layout;
 
-export const getSidenavOpen = createSelector(getLayoutState, fromLayout.getSidenavOpen);
-export const getSidenavCollapsed = createSelector(getLayoutState, fromLayout.getSidenavCollapsed);
-export const getSidenavAlign = createSelector(getLayoutState, fromLayout.getSidenavAlign);
-export const getSidenavMode = createSelector(getLayoutState, fromLayout.getSidenavMode);
-export const getSidenavDisableClose = createSelector(getLayoutState, fromLayout.getSidenavDisableClose);
-export const getQuickpanelOpen = createSelector(getLayoutState, fromLayout.getQuickpanelOpen);
 export const getLayout = createSelector(getLayoutState, fromLayout.getLayout);
-export const getLayoutBoxed = createSelector(getLayoutState, fromLayout.getLayoutBoxed);
-export const getSettingsOpen = createSelector(getLayoutState, fromLayout.getSettingsOpen);
-export const getCardElevation = createSelector(getLayoutState, fromLayout.getCardElevation);
-
-/**
- * Sidenav Reducers
- * @param state
- */
-
-export const getSidenavState = (state: State) => state.sidenav;
-
-export const getSidenavItems = createSelector(getSidenavState, fromSidenav.getSidenavItems);
-export const getSidenavCurrentlyOpen = createSelector(getSidenavState, fromSidenav.getSidenavCurrentlyOpen);
-
-/**
- * Inbox Reducers
- * @param state
- */
-
-export const getInboxState = (state: State) => state.inbox;
-
-export const getInboxMails = createSelector(getInboxState, fromInbox.getMails);
-export const getInboxCurrentlyOpen = createSelector(getInboxState, fromInbox.getCurrentlyOpen);
-export const getInboxActiveGroup = createSelector(getInboxState, fromInbox.getActiveGroup);
-export const getInboxActiveType = createSelector(getInboxState, fromInbox.getActiveType);
-export const getInboxShowOnlyStarred = createSelector(getInboxState, fromInbox.getShowOnlyStarred);
-
-export const getInboxMailsFiltered = createSelector(getInboxMails, getInboxActiveGroup, getInboxActiveType, getInboxShowOnlyStarred,
-  (mails, group, type, onlyStarred) => {
-  if (group) {
-    return _.sortBy(mails, 'when').reverse().filter((mail) => {
-      return (mail.group === group)
-    });
-  }
-
-  if (type) {
-    return _.sortBy(mails, 'when').reverse().filter((mail) => {
-      return (mail.type === type)
-    });
-  }
-
-  if (onlyStarred) {
-    return _.sortBy(mails, 'when').reverse().filter((mail) => {
-      return (mail.starred)
-    });
-  }
-});
-
+export const getAlreadyLogin = createSelector(getLayoutState, fromLayout.getAlreadyLogin);
+export const getRightSidebarStatus = createSelector(getLayoutState, fromLayout.getRightSidebarStatus);

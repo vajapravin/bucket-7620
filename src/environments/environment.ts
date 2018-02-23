@@ -9,8 +9,8 @@ export const environment = {
   googleMapsApiKey: 'AIzaSyAk1ll62DJOsJ1hxgFycpFNh5ZgQuoOhEc',
   envName: 'DEVELOPMENT',
   production: false,
-  // host: 'https://staging-api.thatch.ie',
-  host: 'http://localhost:3000',
+  api_url: 'http://localhost:3002/api/v1',
+  host: 'http://localhost:3002',
   api: 'api/v1',
   versions: {
     app: packageJson.version,

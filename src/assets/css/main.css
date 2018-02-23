@@ -6341,7 +6341,7 @@ body {
   .all-wrapper.with-pattern {
     box-shadow: none;
     border-radius: 0px;
-    background-image: url("../img/bg-pattern2.png");
+    background-image: url("/assets/img/bg-pattern2.png");
     background-size: contain;
     background-repeat: repeat;
     background-position: 0 0; }
@@ -6376,7 +6376,7 @@ body {
 
 .content-w {
   background-color: #f2f4f8;
-  background-image: url("../img/bg-pattern.png");
+  background-image: url("/assets/img/bg-pattern.png");
   background-repeat: no-repeat;
   background-position: 20px 50px;
   vertical-align: top; }

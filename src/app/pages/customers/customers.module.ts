@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MdButtonModule, MdIconModule, MdTabsModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { ProfileComponent } from './profile.component';
+import { CustomersComponent } from './customers.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { ProfileComponent } from './profile.component';
     RouterModule
   ],
   declarations: [
-    ProfileComponent
+    CustomersComponent
   ]
 })
-export class ProfileModule { }
+export class CustomersModule { }

@@ -1,0 +1,152 @@
+<div class="content-i">
+  <div class="content-box">
+    <div class="element-wrapper">
+      <h6 class="element-header">
+        Customers
+      </h6>
+      <div class="element-box">
+        <h5 class="form-header">
+          List of all customers available in system
+        </h5>
+        <div class="form-desc">You can view these <code>customers</code>:
+        </div>
+        <div class="controls-above-table">
+          <div class="row">
+            <div class="col-sm-12 pull-right">
+              <form class="form-inline justify-content-sm-end">
+                <select class="form-control form-control-sm rounded bright">
+                  <option selected="selected" value="">
+                    Select Status
+                  </option>
+                  <option value="Active">
+                    Active
+                  </option>
+                  <option value="Inactive">
+                    Inactive
+                  </option>
+                </select>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-lightborder">
+            <thead>
+              <tr>
+                <th>
+                  Customer Name
+                </th>
+                <th>
+                  Location
+                </th>
+                <th>
+                  Transactions
+                </th>
+                <th class="text-center">
+                  Status
+                </th>
+                <th class="text-right">
+                  Amount
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users$ | async ">
+                <td>
+                  <a title="{{ user.profile.first_name }} {{ user.profile.last_name }} Profile" routerLink="/users/{{ user.identifier }}/profile">{{ user.profile.first_name }} {{ user.profile.last_name }}</a>
+                </td>
+                <td>
+                  {{ user.profile.address.city }},
+                  {{ user.profile.address.country }}
+                </td>
+                <td>
+                  {{ user.activities_count }}
+                </td>
+                <td class="text-center">
+                  <div class="status-pill" [ngClass]="user.active ? 'green' : 'red'" data-title="Complete" data-toggle="tooltip"></div>
+                </td>
+                <td class="text-right">
+                  {{ user.amount }}USD
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="element-wrapper">
+      <h6 class="element-header">
+        Executives
+      </h6>
+      <div class="element-box">
+        <h5 class="form-header">
+          List of all executives available in system
+        </h5>
+        <div class="form-desc">You can view these <code>employees</code>:
+        </div>
+        <div class="controls-above-table">
+          <div class="row">
+            <div class="col-sm-12 pull-right">
+              <form class="form-inline justify-content-sm-end">
+                <select class="form-control form-control-sm rounded bright">
+                  <option selected="selected" value="">
+                    Select Status
+                  </option>
+                  <option value="Active">
+                    Active
+                  </option>
+                  <option value="Inactive">
+                    Inactive
+                  </option>
+                </select>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-lightborder">
+            <thead>
+              <tr>
+                <th>
+                  Employee Name
+                </th>
+                <th>
+                  No of Executives
+                </th>
+                <th>
+                  Transactions
+                </th>
+                <th class="text-center">
+                  Status
+                </th>
+                <th class="text-right">
+                  Amount
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let executive of executives$ | async ">
+                <td>
+                  {{ executive.fullname }}
+                </td>
+                <td>
+                  {{ executive.executives_count }}
+                </td>
+                <td>
+                  {{ executive.transactions }}
+                </td>
+                <td class="text-center">
+                  <div class="status-pill" [ngClass]="executive.active ? 'green' : 'red'" data-title="Complete" data-toggle="tooltip"></div>
+                </td>
+                <td class="text-right">
+                  {{ executive.amount }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
